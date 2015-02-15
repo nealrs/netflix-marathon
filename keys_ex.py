@@ -2,11 +2,11 @@
 username = 'foo@b.ar'
 password = 's3cr3t'
 
-phone = '+15558675309' # for Twilio / SMS notifications
+phone = '+15558675309' # your cell number for Twilio / SMS notifications
 #email = 'foo@b.ar' # for Sendgrid / email notifications?
 
-# TWILIO VARS
+# TWILIO API https://www.twilio.com/user/account/voice-messaging
 sid = '-----------------------'
 token = '----------'
-fnum = '+15551112222'
-url = 'http://media.giphy.com/media/sebYJNgVydzP2/giphy.gif'
+fnum = '+1888865309' #no seriously, your twilio # goes here
+url = 'http://media.giphy.com/media/gx656616VR5ew/giphy.gif' #this can be '' if you don't want a gif

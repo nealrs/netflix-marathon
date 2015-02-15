@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import datetime
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -10,7 +12,7 @@ from tinydb import TinyDB, where
 
 def run():
   #let's log in
-  print('Logging in as: '+ username)
+  print('> Logging in as: '+ username)
   b = webdriver.PhantomJS()
   b.get('https://www.netflix.com/Login?locale=en-US')
   b.find_element_by_id('email').send_keys(username)
@@ -21,50 +23,42 @@ def run():
 
   # confirm page title
   assert b.current_url == 'http://www.netflix.com/WiHome'
-  print 'Logged in successfully'
+  print '> Logged in successfully'
 
   # get a list of TV series watched today
   b.get('https://www.netflix.com/WiViewingActivity')
   assert b.current_url == 'https://www.netflix.com/WiViewingActivity'
-  print 'Getting recent activity'
+  print '> Getting recent activity'
 
   n = datetime.date.today()
-  #ds = str(n.month) + "/" + str(n.day) + "/" + str(n.year)[2:]
   ds = '1/24/15' # fake flag for my account so I can trigger alert
+  #ds = str(n.month) + "/" + str(n.day) + "/" + str(n.year)[2:]
 
   s = BeautifulSoup(b.page_source)
-  a=[] # holder array for show titles
+  a=[] # array for show titles
   for r in s.find_all('li', class_='retableRow'):
       t = r.find('span', class_='seriestitle', text=True)
       d = r.find('div', class_='col date nowrap', text=True)
       if t and d.text == ds:
-          print 'date: ' + d.text + ', title: ' + t.text
+          print '   date: ' + d.text + ', title: ' + t.text
           a.append(t.text)
 
   # If the last 3 episodes watched were from the same series -- it's probably a marathon -- oh and make sure we didn't already trigger an alert today for this  show.
-  if a[0] == a[1] and a[1] == a[2] and not checkDB(ds, username, a[0]):
+  if a[0] == a[1] and a[0] == a[2] and not checkDB(ds, username, a[0]):
 
       #set flag in db
       updateDB(ds, username, a[0])
 
       # Notifications & triggers
       m = 'That\'s '+ str(a.count(a[0])) +' eps of '+ str(a[0])+ ' today! Want some snacks? Amazon can deliver within 60 min: goo.gl/vjLIAw'
-      print m
+      print "> "+ m
 
-      # TWILIO SMS/MMS
-      c = TwilioRestClient(sid, token)
-      if url !='':
-          print "sending MMS"
-          m = c.messages.create(to=phone, from_=fnum, body=m, media_url=url)
-      else:
-          print "sending SMS"
-          m = c.messages.create(to=phone, from_=fnum, body=m)
-
-      # DELIVERY / POSTMATES / HOOKS / OTHER ACTIONS / ETC.
+      # TWILIO SMS/MMS & OTHER HOOKS / ACTIONS
+      smsMms(m)
 
   else:
-      print 'yeah yeah, you love ' + str(a[0]) + '.'
-
+      # whatever, we already triggered an alert for this marathon condition
+      print '> Yeah yeah, you love ' + str(a[0]) + '.'
 
   b.quit()
 
@@ -79,6 +73,16 @@ def updateDB(date,user,show):
     t = db.table('log')
     t.insert({'date': date, 'user': user, 'show': show})
     #print t.all()
+
+def smsMms(m):
+    c = TwilioRestClient(sid, token)
+    if url !='':
+        print "> sending MMS"
+        tw = c.messages.create(to=phone, from_=fnum, body=m, media_url=url)
+    else:
+        print "> sending SMS"
+        tw = c.messages.create(to=phone, from_=fnum, body=m)
+
 
 if __name__ == '__main__':
   run()
