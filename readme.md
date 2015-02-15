@@ -9,11 +9,11 @@ Author: [Neal Shyam](http://nealshyam.com)  &middot; [@nealrs](http://twitter.co
 1. Log into Netflix account using Selenium & PhantomJS
 2. Parse viewing activity with BeautifulSoup
 3. Check if last 3 shows watched are from same series (marathon) and update local tinyDB to avoid repeat triggers on same day.
-4. If marathon detected is, send SMS / MMS via Twilio
+4. If marathon detected is, send SMS / MMS via Twilio with prompt & link to Amazon Prime Now for SNACK DELIVERY, (which is great for Manhattan / NYC).
 
 ## To do
 
-1. Add other hooks for delivery APIs (Postmates / Seamless / Delivery.com / Amazon Prime now) to order marathon supplies (a pint of Cherry Garcia / dinner / booze)
+1. Deep links / API integrations for other apps & APIs 'marathon supplies' (Postmates / Seamless / Delivery.com / Amazon Prime now)
 2. Setup cron job that runs every 30 minutes to check marathon status.
 3. Add frontend for user registration & hide sensitive user data.
 

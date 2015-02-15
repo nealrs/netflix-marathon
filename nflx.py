@@ -48,7 +48,7 @@ def run():
       updateDB(ds, username, a[0])
 
       # Notifications & triggers
-      m = 'That\'s '+ str(a.count(a[0])) +' episodes of '+ str(a[0])+ ' today -- you marathoning bruh?'
+      m = 'That\'s '+ str(a.count(a[0])) +' eps of '+ str(a[0])+ ' today! Want some snacks? Amazon can deliver within 60 min: goo.gl/vjLIAw'
       print m
 
       # TWILIO SMS/MMS
