@@ -29,7 +29,7 @@ Author: [Neal Shyam](http://nealshyam.com)  &middot; [@nealrs](http://twitter.co
 
 - First, install the dependencies
 
-```
+```bash
 pip install selenium tinydb twilio beautifulsoup4
 brew install node
 curl https://www.npmjs.org/install.sh | sh
@@ -40,12 +40,12 @@ npm install phantomjs
 
 - Uncomment this line in `nflx.py`
 
-```
+```python
 ds = str(n.month) + "/" + str(n.day) + "/" + str(n.year)[2:]
 ```
 
 - And finally, run the script 
 
-```
+```bash
 python nflx.py
 ```
