@@ -1,8 +1,12 @@
 # You marathoning bruh? (YMB)
 
-Netflix marathons are very real --  especially sitting in bed, watching on your tablet. The point of YMB is to identify potential marathon sessions and (in the future) facilitate delivery of 'marathon supplies.'
+My friends I were joking last night about how we liked to mainline entire seasons of TV via Netflix -- especially while in bed. The problem is, eventually you need snacks, (gummi bears, a fancy soda, maybe a pint of Cherry Garcia). But, you don't want to get out of bed, switch apps, go outside, or order the same thing from Seamless  _again_. 
 
-Author: [Neal Shyam](http://nealshyam.com)  &middot; [@nealrs](http://twitter.com/nealrs)
+Honestly, it's a pretty big missed opportunity for Netflix. They could enable in-app purchasing & drive up revenue a bajillion percent. And in New York, Amazon Prize Now is a pretty great option for delivery. I bet Postmates would work really well too.
+
+So I thought to myself, why not use my online viewing activity to determine if I'm marathoning and trigger some helpful alerts / calls-to-action? Imagine getting this text: 
+
+> You've watch 4 eps of Arrested Development today. How about some gummy bears and a soda? Amazon can get there in less than 60 mins!
 
 ## Complete
 
@@ -17,7 +21,7 @@ Author: [Neal Shyam](http://nealshyam.com)  &middot; [@nealrs](http://twitter.co
 
   ![](screens/nflx2.png)
 
-  _Example of MMS alert with animated GIF (doesen't work on Nexus 5) + link to Amazon Prime Now_
+  _Example of MMS alert with animated GIF (doesn't work on Nexus 5) + link to Amazon Prime Now_
 
 ## To do
 
