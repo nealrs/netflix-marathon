@@ -2,23 +2,24 @@
 
 Netflix marathons are very real --  especially sitting in bed, watching on your tablet. The point of YMB is to identify potential marathon sessions and (in the future) facilitate delivery of 'marathon supplies.'
 
-Author: [Neal Shyam](http://nealshyam.com)  &middot; [@nealrs](http://twitter.com/nealrs) 
+Author: [Neal Shyam](http://nealshyam.com)  &middot; [@nealrs](http://twitter.com/nealrs)
 
 ## Complete
 
 1. Log into Netflix account using Selenium & PhantomJS
 2. Parse viewing activity with BeautifulSoup
-3. Send SMS / MMS via Twilio if last 3 shows watched are from the same series (marathon danger zone)
+3. Check if last 3 shows watched are from same series (marathon) and update local tinyDB to avoid repeat triggers on same day.
+4. If marathon detected is, send SMS / MMS via Twilio
 
 ## To do
 
-1. Hook up a delivery API (Postmates / Seamless / Delivery.com) to order marathon supplies (a pint of Cherry Garcia / dinner / booze)
-2. Setup cron job that runs every 30 minutes & tracks past alerts -- so you only get alerted once/day about marathoning a show
-3. Make it look better & handle user data better.
+1. Add other hooks for delivery APIs (Postmates / Seamless / Delivery.com / Amazon Prime now) to order marathon supplies (a pint of Cherry Garcia / dinner / booze)
+2. Setup cron job that runs every 30 minutes to check marathon status.
+3. Add frontend for user registration & hide sensitive user data.
 
 ## Requirements
 
-Selenium, beautiful soup, phantomjs, and twilio keys & libs.
+Selenium, tinyDB, beautiful soup, phantomjs, and twilio keys & libs.
 
 ## Installation & Usage
 
