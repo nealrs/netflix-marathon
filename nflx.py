@@ -13,7 +13,8 @@ import twitter
 
 def run():
   #let's log in
-  print('> Logging in as: '+ username)
+  print '> '+ str(datetime.datetime.today())
+  print '> Logging in as: '+ username
   b = webdriver.PhantomJS(executable_path='/usr/local/bin/phantomjs')
   b.get('https://www.netflix.com/Login?locale=en-US')
   b.find_element_by_id('email').send_keys(username)
