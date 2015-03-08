@@ -37,6 +37,8 @@ def run():
   ds = str(n.month) + "/" + str(n.day) + "/" + str(n.year)[2:]
 
   s = BeautifulSoup(b.page_source)
+  b.quit()
+
   a=[] # array for show titles
   for r in s.find_all('li', class_='retableRow'):
       t = r.find('span', class_='seriestitle', text=True)
@@ -65,8 +67,6 @@ def run():
       # whatever, we already triggered an alert for this marathon condition
       #print '> Yeah yeah, you love ' + str(a[0]) + '.'
       pass
-
-  b.quit()
 
 def checkDB(date,user,show):
     db = TinyDB('/users/neal/sites/netflix/db.json')
